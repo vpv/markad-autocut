@@ -121,6 +121,9 @@ def move_cut(dpath):
     command.append(dpath)
     subprocess.run(command, check=True)
 
+    # The cut was successful, the marks file is not useful anymore, remove it
+    pdpath.joinpath("marks").unlink()
+
 
 def is_vdr_cut(dpath):
     """Check if the directory is already a VDR cut"""
